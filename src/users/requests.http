@@ -2,10 +2,9 @@
 
 POST http://localhost:3000/auth/signup
 content-Type: application/json
-
 {
   "email":"machadofelipe2016@outlook.com",
-  "password":"3r324rfwe43"
+  "password":"feafsdfds"
 }
 
 
