@@ -8,6 +8,6 @@ content-Type: application/json
 }
 
 
-GET http://localhost:3000/
+//GET http://localhost:3000/
 
-GET http://localhost:3000/auth
+//GET http://localhost:3000/auth

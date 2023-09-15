@@ -11,7 +11,7 @@ export class UsersController {
     
     @Post("auth/singup") 
     getCallName(@Body() body:CreateUserDto ){
-      console.log(`------ body here ${body} ------`)
+      console.log(body)
     }
 
 }
