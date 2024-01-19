@@ -16,5 +16,29 @@ export class UsersService  {
       return this.repo.save(user)
    
     }
+
+
+   
+    findOne(email:string){
+      return this.repo.findOne(email);
+
+    }
+
+
+
+    find(email:string){
+     return this.repo.find({email});
+    }
+
+
+    update(email:string){
+     return this.repo.update(email);
+    }
+
+
+    delete(){
+
+
+    }
   
 }
