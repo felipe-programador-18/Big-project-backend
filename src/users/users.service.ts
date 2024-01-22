@@ -3,6 +3,7 @@ import { CreateUserDto } from "./dtos/create-user.dto";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "./users.entity";
+import { error } from "console";
 
 @Injectable()
 export class UsersService {
@@ -13,17 +14,19 @@ export class UsersService {
     return this.repo.save(user);
   }
 
-  findOne(email: string) {
-    return this.repo.findOne(email);
+  findOne(id: any) {
+    return this.repo.findOne(id);
   }
 
-  find(email: string) {
-    return this.repo.find({ email });
+  find(email) {
+    return this.repo.find(email);
   }
 
-  update(email: string) {
-    return this.repo.update(email);
+  async update(id: number, attrs: Partial<User>) {
+    const user = await this.findOne(id);
+    if (!user) {
+      throw new error("user not exist");
+    }
+    Object.assign(user, attrs);
   }
-
-  delete() {}
 }
