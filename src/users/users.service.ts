@@ -28,5 +28,7 @@ export class UsersService {
       throw new error("user not exist");
     }
     Object.assign(user, attrs);
+
+    return this.repo.save(user);
   }
 }
