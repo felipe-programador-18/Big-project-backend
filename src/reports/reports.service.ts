@@ -1,10 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class ReportsService {
- 
   getCallName(): string {
-    return "just testing my router"
-  } 
-
+    return "just testing my router";
+  }
 }
