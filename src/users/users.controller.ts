@@ -6,9 +6,9 @@ import { UsersService } from "./users.service";
 export class UsersController {
   constructor(private userService: UsersService) {}
 
-  @Post("singup")
+  @Post("/signup")
   getCallName(@Body() body: CreateUserDto) {
-    console.log(`------ body here ${body} ------`);
+    this.userService.create(body.email, body.password);
   }
 
   @Get("/:id")
