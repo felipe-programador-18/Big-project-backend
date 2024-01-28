@@ -20,4 +20,9 @@ export class UsersController {
   findAll(@Query("email") email: string) {
     return this.userService.find(email);
   }
+
+  @Delete("/:id")
+  removeUser(@Param("id") id: string) {
+    return this.userService.remove(parseInt(id));
+  }
 }

@@ -16,3 +16,12 @@ GET http://localhost:3000/auth
 // presta atenção nisso o id não aparece na tela apenas direto no banco de dados
 
 GET  http://localhost:3000/auth/1
+
+
+// creating another get to get my all users that have been registred
+GET http://localhost:3000/auth?email='machadofelipe2016@outlook.com'
+
+
+// creating another function to remove my users!
+
+DELETE http://localhost:3000/auth/1
