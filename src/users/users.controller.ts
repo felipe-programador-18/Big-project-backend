@@ -12,7 +12,7 @@ export class UsersController {
   }
 
   @Get("/:id")
-  findAllUser(@Param("id") id: string) {
+  findUser(@Param("id") id: string) {
     return this.userService.findOne(parseInt(id));
   }
 

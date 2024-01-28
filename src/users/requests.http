@@ -3,10 +3,16 @@
 POST http://localhost:3000/auth/signup
 content-type: application/json
 {
-  "email":"machadofelipe2016outlook.com",
-  "password":"feafsdfds"
+  "email":"machadofelipe2016@outlook.com",
+  "password":"3p2{,iWU~%-"
 }
 
-//GET http://localhost:3000/
+GET http://localhost:3000/
 
-//GET http://localhost:3000/auth
+GET http://localhost:3000/auth
+
+
+// find one particular user with given id
+// presta atenção nisso o id não aparece na tela apenas direto no banco de dados
+
+GET  http://localhost:3000/auth/1

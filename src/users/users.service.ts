@@ -11,11 +11,12 @@ export class UsersService {
 
   create(email: string, password: string) {
     const user = this.repo.create({ email, password });
+    console.log("my user is here testing now", user);
     return this.repo.save(user);
   }
 
-  findOne(id: any) {
-    return this.repo.findOne(id);
+  findOne(id: number) {
+    return this.repo.findOneBy({ id });
   }
 
   find(email) {
