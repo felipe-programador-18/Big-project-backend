@@ -24,4 +24,4 @@ GET http://localhost:3000/auth?email='machadofelipe2016@outlook.com'
 
 // creating another function to remove my users!
 
-DELETE http://localhost:3000/auth/1
+DELETE http://localhost:3000/auth/    1 
