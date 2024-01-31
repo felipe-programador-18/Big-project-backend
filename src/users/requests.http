@@ -15,7 +15,7 @@ GET http://localhost:3000/auth
 // find one particular user with given id
 // presta atenção nisso o id não aparece na tela apenas direto no banco de dados
 
-GET  http://localhost:3000/auth/1
+GET  http://localhost:3000/auth/2
 
 
 // creating another get to get my all users that have been registred
@@ -25,3 +25,12 @@ GET http://localhost:3000/auth?email='machadofelipe2016@outlook.com'
 // creating another function to remove my users!
 
 DELETE http://localhost:3000/auth/    1 
+
+// creating another function this called update 
+
+PATCH http://localhost:3000/auth/2
+content-type: application/json
+{
+  "email":"programmerfelipe2022@outlook.com",
+  "password":"felipe@18@#$#$"
+}
