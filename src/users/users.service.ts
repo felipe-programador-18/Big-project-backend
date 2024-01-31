@@ -1,6 +1,6 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { CreateUserDto } from "./dtos/create-user.dto";
-import { Repository } from "typeorm";
+import { Not, Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "./users.entity";
 import { error } from "console";
@@ -16,6 +16,9 @@ export class UsersService {
   }
 
   findOne(id: number) {
+    //if (!id === null) {
+    // return { message: "Id not exists" };
+    // }
     return this.repo.findOneBy({ id });
   }
 
@@ -26,7 +29,7 @@ export class UsersService {
   async update(id: number, attrs: Partial<User>) {
     const user = await this.findOne(id);
     if (!user) {
-      throw new error("user not exist");
+      throw new NotFoundException("user not exist");
     }
     Object.assign(user, attrs);
 
@@ -37,7 +40,7 @@ export class UsersService {
     const user = await this.findOne(id);
 
     if (!user) {
-      throw new Error("user not exist");
+      throw new NotFoundException("user not exist");
     }
 
     return this.repo.remove(user);
