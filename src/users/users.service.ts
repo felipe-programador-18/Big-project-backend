@@ -29,7 +29,7 @@ export class UsersService {
   async update(id: number, attrs: Partial<User>) {
     const user = await this.findOne(id);
     if (!user) {
-      throw new NotFoundException("user not exist");
+      throw new NotFoundException("user not exists");
     }
     Object.assign(user, attrs);
 
