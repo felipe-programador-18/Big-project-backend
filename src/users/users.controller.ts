@@ -1,23 +1,9 @@
-import {
-  Controller,
-  Post,
-  Body,
-  Get,
-  Query,
-  Delete,
-  Patch,
-  Param,
-  NotFoundException,
-  UseInterceptors,
-  ClassSerializerInterceptor,
-} from "@nestjs/common";
+import { Controller, Post, Body, Get, Query, Delete, Patch, Param, NotFoundException, UseInterceptors } from "@nestjs/common";
 import { CreateUserDto } from "./dtos/create-user.dto";
 import { UsersService } from "./users.service";
 import { UpdateUserDto } from "src/users/dtos/update-user.dto";
 import { SerialiazeInterceptor } from "src/interceptors/serialize.interceptor";
 import { UserDto } from "./dtos/user-dto";
-
-
 
 @Controller("auth")
 export class UsersController {
@@ -31,7 +17,7 @@ export class UsersController {
   // this tool is amazing to avoid show more that allowed
 
   // I will to transform this on new serializeintercptor
-  @UseInterceptors( new SerialiazeInterceptor(UserDto))
+  @UseInterceptors(new SerialiazeInterceptor(UserDto))
   @Get("/:id")
   async findUser(@Param("id") id: string) {
     console.log("handler its running now");
@@ -45,11 +31,13 @@ export class UsersController {
     return user;
   }
 
+  // to find my all date
   @Get()
   findAll(@Query("email") email: string) {
     return this.userService.find(email);
   }
 
+  // to delete my data
   @Delete("/:id")
   removeUser(@Param("id") id: string) {
     return this.userService.remove(parseInt(id));
