@@ -2,10 +2,11 @@ import { Controller, Post, Body, Get, Query, Delete, Patch, Param, NotFoundExcep
 import { CreateUserDto } from "./dtos/create-user.dto";
 import { UsersService } from "./users.service";
 import { UpdateUserDto } from "src/users/dtos/update-user.dto";
-import { SerialiazeInterceptor } from "src/interceptors/serialize.interceptor";
+import { Serialize } from "src/interceptors/serialize.interceptor";
 import { UserDto } from "./dtos/user-dto";
 
 @Controller("auth")
+@Serialize(UserDto)
 export class UsersController {
   constructor(private userService: UsersService) {}
 
@@ -17,7 +18,6 @@ export class UsersController {
   // this tool is amazing to avoid show more that allowed
 
   // I will to transform this on new serializeintercptor
-  @UseInterceptors(new SerialiazeInterceptor(UserDto))
   @Get("/:id")
   async findUser(@Param("id") id: string) {
     console.log("handler its running now");
